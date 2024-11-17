@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In Form </title>
+    <link rel="stylesheet" href="log.css">
+</head>
+<body>
+    <div class="box">
+
+        <div class="container">
+            <h2 id="p">Welcome To My Little World </h2>
+            <p id="p">Please Log In To See My Personal WebPage</p>
+
+            <form action="index.php" method="post">
+                <h2>Login</h2><br>
+                <lable for="email">Email</lable>
+                <input type="email" name="email" id="email" placeholder="Enter Your Email"><br>
+                <lable for="password">Password</lable>
+                <input type="password" name="password" id="password" placeholder="Enter Your password"><br><br>
+               <p >
+                   <a id="forgot" href="#">Forgot password ? </a><br><br>
+                </p>
+                   <p id="or">Don't have an account? <a id="signup" href="#">Sign Up</a></p>
+                   <br>
+                   <br>
+                   <!-- <p id="or" >Or</p> -->
+                
+
+                <!-- <button id="login" >Login with Facebook</button>
+                <button id="login"><a>Login with Google</a></button> -->
+                <button class="submit" ><h4>Submit</h4></button>
+                
+            </form>
+        </div>
+        
+
+        
+    </div>
+
+    <script src="log.js"></script>
+    </body>
+    </html>
