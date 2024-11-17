@@ -23,10 +23,10 @@ if (isset($_POST['email'])) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare SQL statement
-    $sql = "INSERT INTO `portfolio`.`loginform` (`email`, `password`, `date`) VALUES ('$email', '$hashedPassword', current_timestamp());";
+    $sql = "INSERT INTO `portfolio`.`login` (`email`, `password`, `date`) VALUES ('$email', '$hashedPassword', current_timestamp());";
 
     if ($con->query($sql) === true) {
-        // echo "Successfully inserted";
+        // "Successfully inserted";
         $loggedin=true;
     } else {
         echo "Please enter valid email Error: $sql <br> $con->error";

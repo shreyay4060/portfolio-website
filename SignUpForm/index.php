@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Use prepared statements to prevent SQL injection
-    $stmt = $con->prepare("INSERT INTO `portfolio`.`signupform` (`email`, `password`, `date`) VALUES (?, ?, NOW())");
+    $stmt = $con->prepare("INSERT INTO `portfolio`.`signup` (`email`, `password`, `date`) VALUES (?, ?, NOW())");
     $stmt->bind_param("ss", $email, $hashedPassword); // Bind email and hashed password
 
     if ($stmt->execute()) {

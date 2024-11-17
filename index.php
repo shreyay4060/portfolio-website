@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/3047116925.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+
     <div id="header">
         <div class="container">
             <nav>
@@ -149,7 +149,7 @@
         $server="localhost";
         $username="root";
         $password="";
-        $database="portfoliocontact";
+        $database="portfolio";
             
             $con = mysqli_connect($server,$username,$password);
             
@@ -163,20 +163,19 @@
             $name=$_POST['name'];
             $email=$_POST['email'];
             $msg=$_POST['msg'];
-            $sql="INSERT INTO `portfoliocontact`.`contact` (`name`, `email`, `msg`, `date`) VALUES ('$name', '$email', '$msg', current_timestamp());";
+            $sql="INSERT INTO `portfolio`.`contact` (`name`, `email`, `msg`, `date`) VALUES ('$name', '$email', '$msg', current_timestamp());";
             
             
             if ($con->query($sql) === true) {
                 // Successfully inserted
                 $submit = true;
     } 
-            else{
-                echo "insertion is failed Error : " . $sql . "<br>" . $con->error;
-            }
+    //         else{
+    //             echo "insertion is failed Error :  $sql <br>$con->error ";
+    //         }
             
             $con->close();
-    }
-             
+    }      
     ?>
     
     <div id="contact">
