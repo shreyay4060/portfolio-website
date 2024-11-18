@@ -170,9 +170,9 @@
                 // Successfully inserted
                 $submit = true;
     } 
-    //         else{
-    //             echo "insertion is failed Error :  $sql <br>$con->error ";
-    //         }
+            else{
+                echo "insertion is failed Error :  $sql <br>$con->error ";
+            }
             
             $con->close();
     }      

@@ -1,41 +1,54 @@
 <?php
-    // variable for submit contact form
-    $submit=false;
-    if(isset($_POST['name'])){
-        $server="localhost";
-        $username="root";
-        $password="";
-        $database="portfolio";
-            
-            $con = mysqli_connect($server,$username,$password);
-            
-            if(!$con){
-                die("Connection failed: " . mysqli_connect_error());
-            }
-            //  echo "Success connection to database"; 
-            
-            mysqli_select_db($con, $database);
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-            $name=$_POST['name'];
-            $email=$_POST['email'];
-            $projectType=$_POST['projectType'];
-            $budget=$_POST['budget'];
-            $projectDetails=$_POST['projectDetails'];
-            $sql="INSERT INTO `portfolio`.`projectinquiry` (`name`, `email`, `projectType`,`budget`,`projectDetails`, `date`) VALUES ('$name', '$email', '$projectType','$budget','$projectDetails', current_timestamp());";
-            
-            
-            if ($con->query($sql) === true) {
-                // Successfully inserted
-                $submit = true;
-    } 
-            else{
-                echo "insertion is failed Error :  $sql <br>$con->error ";
-            }
-            
-            $con->close();
-    }      
-    ?>
-    
+// Variable for form submission status
+$submit = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $server = "localhost";
+    $username = "root"; // Update if your username is different
+    $password = ""; // Update if your password is different
+    $database = "portfolio";
+
+    // Create a connection
+    $con = new mysqli($server, $username, $password, $database);
+
+    // Check connection
+    if ($con->connect_error) {
+        die("Connection failed: " . $con->connect_error);
+    }
+
+    // Prepare and bind
+    $stmt = $con->prepare("INSERT INTO projectinquiry (name, email, projectType, budget, projectDetails) VALUES (?, ?, ?, ?, ?)");
+    if ($stmt === false) {
+        die("Prepare failed: " . $con->error);
+    }
+
+    // Bind parameters
+    $stmt->bind_param("sssis", $name, $email, $projectType, $budget, $projectDetails);
+
+    // Set parameters and execute
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $projectType = $_POST['projectType'];
+    $budget = $_POST['budget'];
+    $projectDetails = $_POST['projectDetails'];
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        // Successfully inserted
+        $submit = true;
+    } else {
+        echo "Insertion failed. Error: " . $stmt->error;
+    }
+
+    // Close the statement and connection
+    $stmt->close();
+    $con->close();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +61,7 @@
 <body>
     <div class="form-container">
         <h1>Project Inquiry Form</h1>
-        <form action="index.php" method="post" id="inquiryForm" >
+        <form action="" method="post" id="inquiryForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
 
@@ -65,15 +78,14 @@
             </select>
 
             <label for="budget">Budget (USD):</label>
-            <input type="number" id="budget" name="budget" placeholder="Your Budget" min="0">
+            <input type="number" id="budget" name="budget" placeholder="Your Budget" min="0" required>
 
             <label for="message">Project Details:</label>
             <textarea id="message" name="projectDetails" placeholder="Describe your project here..." rows="5" required></textarea>
 
             <button type="submit">Submit</button>
-        </>
-        <p id="form-status"></p>
+        </form>
+        <p id="form-status"><?php echo $submit ? "Submission successful!" : ""; ?></p>
     </div>
-    <script src="projectInquiry.js"></script>
 </body>
 </html>
