@@ -13,18 +13,19 @@
 
     <div id="header">
         <div class="container">
-            <nav>
-                <!-- <img src="images/logo2.png" height="30px" class="logo"> -->
-                <ul id="sidemenu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <i class="fa-solid fa-xmark fas" onclick="closemenu()" ></i>
-                </ul>
-                <i class="fa-solid fa-bars fas" onclick="openmenu()" ></i>
-            </nav>
+        <nav>
+            <div class="logo">My Logo</div>
+            <ul id="sidemenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-solid fa-xmark fas" onclick="closeMenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars fas" onclick="openMenu()"></i>
+        </nav>
+
             <div class="header-text">
                
                 <h1>Hi, I'm <span>Shreya</span> <br>And I am a <br> <span id="element"></span> </h1>
@@ -39,7 +40,7 @@
                     <img src="images/img3.jpg">
                 </div>
                 <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
+                    <h3 class="sub-title">About Me</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam provident nobis quibusdam esse odio porro accusantium, deleniti iusto eveniet officiis, consequuntur, at quas doloribus veniam nisi excepturi. Voluptas, debitis quae.
                    </p>
 
@@ -79,7 +80,7 @@
 
     <div id="services">
         <div class="container">
-            <h1 class="sub-title">My Services</h1>
+            <h3 class="sub-title">My Services</h3>
             <div class="service-list">
                 <div>
                     <i class="fa-solid fa-code"></i>
@@ -108,7 +109,7 @@
 
     <div id="portfolio">
         <div class="container">
-            <h1 class="sub-title">My Work</h1>
+            <h3 class="sub-title">My Work</h3>
             <div class="work-list">
                 <div class="work">
                     <img src="images/img2.jpg">
@@ -139,61 +140,72 @@
         </div>
     </div>
 
+
     <!-- --------Contact--------- -->
+
      <!-- php code for contact form -->
-    <?php
+     <?php
 
-    // variable for submit contact form
-    $submit=false;
-    if(isset($_POST['name'])){
-        $server="localhost";
-        $username="root";
-        $password="";
-        $database="portfolio";
-            
-            $con = mysqli_connect($server,$username,$password);
-            
-            if(!$con){
-                die("Connection failed: " . mysqli_connect_error());
-            }
-            //  echo "Success connection to database"; 
-            
-            mysqli_select_db($con, $database);
+// variable for submit contact form
+$submit = false;
+if (isset($_POST['name'])) {
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "portfolio";
 
-            $name=$_POST['name'];
-            $email=$_POST['email'];
-            $msg=$_POST['msg'];
-            $sql="INSERT INTO `portfolio`.`contact` (`name`, `email`, `msg`, `date`) VALUES ('$name', '$email', '$msg', current_timestamp());";
-            
-            
-            if ($con->query($sql) === true) {
-                // Successfully inserted
-                $submit = true;
-    } 
-            else{
-                echo "insertion is failed Error :  $sql <br>$con->error ";
-            }
-            
-            $con->close();
-    }      
-    ?>
+    // Create a connection
+    $con = mysqli_connect($server, $username, $password, $database);
+
+    // Check connection
+    if (!$con) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    // Prepare the SQL statement
+    $stmt = $con->prepare("INSERT INTO contact (name, email, msg, date) VALUES (?, ?, ?, current_timestamp())");
+    
+    // Bind parameters
+    $stmt->bind_param("sss", $name, $email, $msg);
+
+    // Get values from POST request
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $msg = $_POST['msg'];
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        // Successfully inserted
+        $submit = true;
+    } else {
+        // Log the error instead of displaying it
+        error_log("Insertion failed: " . $stmt->error);
+        echo "There was an error submitting your message. Please try again later.";
+    }
+
+    // Close the statement and connection
+    $stmt->close();
+    $con->close();
+}
+?>
     
     <div id="contact">
         <div class="container">
             <div class="row">
                 <div class="contact-left">
-                    <h1 class="sub-title">Get in Touch</h1>
+                    <h3 class="sub-title">Get in Touch</h3>
                     <p><i class="fa-solid fa-paper-plane-top"></i> 
                     Contact@ex.com
                 </p>
                 <p><i class="fa-solid fa-square-phone"></i> 
-                786786878
+                8421915279
                     </p>
                     <div class="social-icons">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
                         <a href="#"><i class="fa-brands fa-twitter-square"></i></a>
                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
                     </div>
                     <a href="images/resume.pdf"class="btn btn2" download>Download CV</a>
                 </div>
@@ -216,7 +228,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>Copyright <i class="fa-regular fa-copyright"></i> Shreya. Made with <i class="fa-sharp fa-solid fa-heart"></i> by easy tutorial</p>
+            <p>Copyright <i class="fa-regular fa-copyright"></i> Shreya <i class="fa-sharp fa-solid fa-heart"></i> </p>
         </div>
     </div>
 
