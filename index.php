@@ -227,12 +227,21 @@ if (isset($_POST['name'])) {
                 </div>
             </div>
         </div>
+        <br>
+        <div class="form">
+
+            <button class="forms"><a href="eventRegistrationForm/index.php" class="btn1">Event Registration</a></button>
+            <button class="forms"><a href="feedbackForm/index.php" class="btn1">Feedback</button>
+            <button class="forms"><a href="surveyForm/index.php" class="btn1">Survey</button>
+            <button class="forms"><a href="resumeSubmissionForm/index.php" class="btn1">Submit Resume</button>
+            <button class="forms"><a href="projectInquiryForm/index.php" class="btn1">Project Inquiry</button>
+        </div>
         <div class="copyright">
             <p>Copyright <i class="fa-regular fa-copyright"></i> Shreya <i class="fa-sharp fa-solid fa-heart"></i> </p>
         </div>
     </div>
 
-
+    <div class="space"></div>
     
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     
