@@ -1,4 +1,6 @@
 <?php
+$submit = false; // Initialize the variable
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     $server = "localhost";
     $username = "root";
@@ -34,11 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     // Use prepared statements to prevent SQL injection
     $stmt = $con->prepare("INSERT INTO `portfolio`.`signup` (`email`, `password`, `date`) VALUES (?, ?, NOW())");
     $stmt->bind_param("ss", $email, $hashedPassword); // Bind email and hashed password
-
     if ($stmt->execute()) {
-        echo "Successfully inserted";
+        // Successfully inserted
+        $submit = true;
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Insertion failed. Error: " . $stmt->error;
     }
 
     $stmt->close();
@@ -58,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     <div class="container">
         <h2>Create a new account!</h2>
         <p>Fill up the necessary details</p>
-        <form action="index.php" method="post">
+        <form action="index.php" method="post" id="signupForm">
             <h2>Signup Form</h2>
 
             <label for="email">Email</label>
@@ -71,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" required />
 
             <button type="submit" class="submit">Submit</button>
+            <p id="form-status"><?php echo $submit ? "Submission successful!" : ""; ?></p>
         </form>
     </div>
 

@@ -61,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="form-container">
         <h1>Project Inquiry Form</h1>
+        
         <form action="" method="post" id="inquiryForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>

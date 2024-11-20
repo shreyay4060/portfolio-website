@@ -47,8 +47,15 @@
 <body>
     
     <div class="container"><br>
-        <br><h1>Feedback Form</h1><br><br><br>
-        <form action="index.php" method="post">
+        <br><h1>Feedback Form</h1><br><!-- Vote of thanks -->
+                     <?php
+                           if($submit==true){
+
+                               echo "<div class='thanks'>Thanks for submitting your response</div>";
+                            } 
+                     ?>
+                     <br>
+        <form action="index.php" method="post" id="feedbackForm">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -69,6 +76,6 @@
             <div id="responseMessage" class="response-message"></div>
         </form>
     </div>
-    <script src="feedback.js"></script>
+    <!-- <script src="feedback.js"></script> -->
 </body>
 </html>

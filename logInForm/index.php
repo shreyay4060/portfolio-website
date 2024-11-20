@@ -43,7 +43,7 @@ if (isset($_POST['email'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In Form</title>
-    <link rel="stylesheet" href="log.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="box">
@@ -58,7 +58,7 @@ if (isset($_POST['email'])) {
                 }
             ?>
 
-            <form action="index.php" method="post">
+            <form action="index.php" method="post" id="loginForm">
                 <h2>Login</h2><br>
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Enter Your Email" required><br>
@@ -74,6 +74,6 @@ if (isset($_POST['email'])) {
         </div>
     </div>
 
-    <script src="log.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>

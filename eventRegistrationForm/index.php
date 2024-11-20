@@ -1,4 +1,5 @@
 <?php
+$submit=false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capture the form data
     $name = $_POST['name'];
@@ -26,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "Registration successful!";
+        // echo "Registration successful!";
+        $submit=true;
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -47,7 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="form-container">
-        <h1>Event Registration Form</h1>
+        <h1>Event Registration Form</h1><br>
+        <!-- Vote of thanks -->
+        <?php
+            if($submit==true){
+                echo "<div class='thanks'>Thanks for submitting your response</div>";
+            } 
+        ?>
        
         <form action="index.php" method="post">
             <!-- Name Field -->

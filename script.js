@@ -20,14 +20,32 @@ var typed = new Typed('#element', {
   }
 
 
-  //close and open menu
+  // JavaScript for Responsive Menu
+function openMenu() {
+  const sideMenu = document.getElementById('sidemenu');
+  sideMenu.classList.add('open');
+}
 
-  var sidemenu=document.getElementById("sidemenu");
+function closeMenu() {
+  const sideMenu = document.getElementById('sidemenu');
+  sideMenu.classList.remove('open');
+}
 
-  function openmenu(){
-    sidemenu.style.right="0";
-  }
+// Smooth Scrolling for Links (Optional)
+document.querySelectorAll('nav ul li a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+      e.preventDefault();
 
-  function closemenu(){
-    sidemenu.style.right="-200px";
-  }
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+          targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+          });
+      }
+
+      closeMenu(); // Close menu after click on mobile
+  });
+});

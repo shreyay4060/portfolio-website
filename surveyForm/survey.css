@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #ff004f;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Form Container */
+.form-container {
+    width: 22rem;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border: 1.5px solid rgb(250, 248, 248);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.form-container:hover{
+    border: 1.5px solid rgb(63, 125, 231);
+}
+
+/* Form Heading */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    text-align: center;
+    color: #666;
+}
+
+/* Labels and Inputs */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.options label {
+    display: block;
+    margin: 5px 0;
+}
+
+textarea, input[type="range"], button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+
+textarea {
+    resize: none;
+    outline: none;
+}
+textarea:hover{
+    border: 1.3px solid blue;
+}
+
+button {
+   
+    color: #080808;
+    border: none;
+    cursor: pointer;
+    margin-top: 40px;
+    width: 80px;
+    font-weight: 600;
+    margin-left: 140px;
+    
+}
+#submit{
+    border: 1.5px solid #ff004f;
+}
+#submit:hover{
+    border: 1.5px solid rgb(248, 245, 245);
+}
+
+button:hover {
+    
+    background: #ff004f;
+}
+
+/* Rating Scale */
+.rating-scale {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating-scale span {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Form Status */
+#form-status {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
