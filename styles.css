@@ -166,7 +166,8 @@ nav ul#sidemenu i {
 }
 
 .about-col-1 img {
-    width: 100%;
+    width: 60%;
+    height: 70%;
     border-radius: 15px;
 }
 
@@ -177,6 +178,9 @@ nav ul#sidemenu i {
     font-size: 40px;
     font-weight: 600;
     color: #fff;
+}
+.shreya{
+    color: #ff004f;
 }
 .tab-titles{
     display: flex;

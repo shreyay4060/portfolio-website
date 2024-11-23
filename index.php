@@ -32,17 +32,59 @@
             </div>
         </div>
     </div>
+    <!-- ------Servicces------- -->
+
+    <div id="services">
+        <div class="container">
+            <h3 class="sub-title">My Services</h3>
+            <div class="service-list">
+            <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>Designing intuitive and user-friendly interfaces for applications, focusing on user experience and usability.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Custom Software Development</h2>
+                    <p>Creating tailored software solutions that meet specific client needs, including desktop applications, mobile apps, and web applications.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Building and maintaining websites and web applications, including front-end (user interface) and back-end (server-side) development.</p>
+                    <a href="#">Learn more</a>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>Database Design and Management</h2>
+                    <p>Designing, implementing, and managing databases to store and retrieve data efficiently and securely.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store"></i>
+                    <h2>E-commerce Solutions</h2>
+                    <p>Developing and managing e-commerce platforms, including shopping cart integration, payment processing, and inventory management.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
     <!-- ------- about ---------- -->
     <div id="about">
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/img3.jpg">
+                    <img src="images/img1.jpg">
                 </div>
                 <div class="about-col-2">
-                    <h3 class="sub-title">About Me</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam provident nobis quibusdam esse odio porro accusantium, deleniti iusto eveniet officiis, consequuntur, at quas doloribus veniam nisi excepturi. Voluptas, debitis quae.
-                   </p>
+                    <h3 class="sub-title">About Me</h3><br>
+                    <p>Hello, my name is <b class="shreya">Shreya</b>. I recently completed my Bachelor of Computer Science (BCS) degree in 2025 from SGM College in Karad, affiliated with Shivaji University. With a strong passion for computers and technology, I am excited to embark on my career as a Software Developer. I am eager to apply my knowledge and skills in programming and software development to create innovative solutions and contribute to impactful projects in the tech industry.
+                    </p>
 
                    <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -52,23 +94,26 @@
                    <div class="tab-contents active-tab" id="skills">
                     <ul>
                         <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
-                        <li><span>Web Development</span><br>Designing Web/App interfaces</li>
-                        <li><span>App Development </span><br>Building Android/iOS apps</li>
+                        <li><span>Problem-Solving:</span><br> Ability to analyze problems and develop effective solutions.</li>
+                        <li><span>Communication:</span><br> Strong verbal and written communication skills to collaborate with team members and stakeholders.</li>
+                        <li><span>Teamwork: </span><br> Ability to work effectively in a team environment</li>
+                        <li><span>Adaptability: </span><br>  Willingness to learn new technologies and adapt to changing project requirements.</li>
                     </ul>
                    </div>
                    <div class="tab-contents" id="experience">
                     <ul>
-                        <li><span>2021 - Current</span><br>UI/UX Design Training at ET Institute</li>
-                        <li><span>2019 - 2021</span><br>Team lead at StarApp LLC.</li>
-                        <li><span>2017 - 2019 </span><br>UI/UX Design Executive at Coin Digital Ltd.</li>
-                        <li><span>2016 - 2017 </span><br>Internship at ekart eCommerce.</li>
+                        <li><span>2025 - Current</span><br>Currently I have attended Nandi -Mahindra Pride Workshop </li>
+                        <li><span>2024 - 2025</span><br>I also contribute in Open source projects on github .</li>
+                        <li><span>2024 - 2025 </span><br>I started freelancing took some simple projects depends upon frontend</li>
+                        <li><span>2023 - 2024 </span><br>Created own projects based on some experiments and technologies.There are some projects listed below and you can see on them on my github page.</li>
                     </ul>     
                    </div>
                    <div class="tab-contents" id="education">
                     <ul>
-                        <li><span>2016</span><br>UI/UX Design Training at ET Institute</li>
-                        <li><span>2016</span><br>MBA from MIT Bangalore</li>
-                        <li><span>2014 </span><br>BBA from ISM Bangalore</li>
+                        <li><span>2020</span><br>I completed my 10th with 94.40% </li>
+                        <li><span>2022</span><br>I have completed my 12th in science stream with 75.50%</li>
+                        <li><span>2025 </span><br>I completed my BCS degree with aggregate percentage 85%</li>
+                        <li><span>2025 </span><br>I started my MERN Stack Developer Journey</li>
                     </ul>
                 </div>
                 </div>
@@ -82,22 +127,35 @@
         <div class="container">
             <h3 class="sub-title">My Services</h3>
             <div class="service-list">
-                <div>
-                    <i class="fa-solid fa-code"></i>
-                    <h2>Web Design</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque deleniti aspernatur nostrum, sed reiciendis .</p>
+            <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>Designing intuitive and user-friendly interfaces for applications, focusing on user experience and usability.</p>
                     <a href="#">Learn more</a>
                 </div>
                 <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Custom Software Development</h2>
+                    <p>Creating tailored software solutions that meet specific client needs, including desktop applications, mobile apps, and web applications.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Building and maintaining websites and web applications, including front-end (user interface) and back-end (server-side) development.</p>
+                    <a href="#">Learn more</a>
+                </div>
+
+                <div>
                     <i class="fa-solid fa-crop"></i>
-                    <h2>UI/UX Design</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque deleniti aspernatur nostrum, sed reiciendis .</p>
+                    <h2>Database Design and Management</h2>
+                    <p>Designing, implementing, and managing databases to store and retrieve data efficiently and securely.</p>
                     <a href="#">Learn more</a>
                 </div>
                 <div>
                     <i class="fa-brands fa-app-store"></i>
-                    <h2>App Design</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque deleniti aspernatur nostrum, sed reiciendis .</p>
+                    <h2>E-commerce Solutions</h2>
+                    <p>Developing and managing e-commerce platforms, including shopping cart integration, payment processing, and inventory management.</p>
                     <a href="#">Learn more</a>
                 </div>
                 
@@ -109,7 +167,7 @@
 
     <div id="portfolio">
         <div class="container">
-            <h3 class="sub-title">My Work</h3>
+            <h3 class="sub-title">My Work</h3><br><br>
             <div class="work-list">
                 <div class="work">
                     <img src="images/img2.jpg">
