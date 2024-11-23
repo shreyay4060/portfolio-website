@@ -1,6 +1,6 @@
 var typed = new Typed('#element', {
-    strings: [' Web-Developer ,', ' Designer , ',' Frontend ,'],
-    typeSpeed: 50,
+    strings: [' Web-Designer ,', ' Graphic Designer , ',' Frontend Developer ,',' Backend Developer ,',' Web-Developer ,',' Web-Designer ,', ' Graphic Designer , ',' Frontend Developer ,',' Backend Developer ,',' Web-Developer ,',' Web-Designer ,', ' Graphic Designer , ',' Frontend Developer ,',' Backend Developer ,',' Web-Developer ,',' Web-Designer ,', ' Graphic Designer , ',' Frontend Developer ,',' Backend Developer ,',' Web-Developer ,',' Web-Designer ,', ' Graphic Designer , ',' Frontend Developer ,',' Backend Developer ,',' Web-Developer ,',' Web-Designer ,', ' Graphic Designer , ',' Frontend Developer ,',' Backend Developer ,',' Web-Developer ,',' Web-Designer ,', ' Graphic Designer , ',' Frontend Developer ,',' Backend Developer ,',' Web-Developer ,',' Web-Designer ,', ' Graphic Designer , ',' Frontend Developer ,',' Backend Developer ,',' Web-Developer ,'],
+    typeSpeed:40,
   });
 
   var tablinks = document.getElementsByClassName("tab-links");

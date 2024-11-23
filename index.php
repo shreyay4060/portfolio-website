@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shreya.dev</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="survey.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/3047116925.js" crossorigin="anonymous"></script>
 </head>
@@ -32,17 +33,17 @@
             </div>
         </div>
     </div>
-    <!-- ------Servicces------- -->
+    <!-- ------Forms------- -->
 
     <div id="services">
         <div class="container">
-            <h3 class="sub-title">My Services</h3>
+            <br><h3 class="sub-title log">Login Please</h3>
             <div class="service-list">
             <div>
                     <i class="fa-solid fa-crop"></i>
-                    <h2>UI/UX Design</h2>
+                    <h2>Log in</h2>
                     <p>Designing intuitive and user-friendly interfaces for applications, focusing on user experience and usability.</p>
-                    <a href="#">Learn more</a>
+                    <a href="logInForm/index.php">Learn more</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-code"></i>
@@ -54,19 +55,6 @@
                     <i class="fa-solid fa-code"></i>
                     <h2>Web Design</h2>
                     <p>Building and maintaining websites and web applications, including front-end (user interface) and back-end (server-side) development.</p>
-                    <a href="#">Learn more</a>
-                </div>
-
-                <div>
-                    <i class="fa-solid fa-crop"></i>
-                    <h2>Database Design and Management</h2>
-                    <p>Designing, implementing, and managing databases to store and retrieve data efficiently and securely.</p>
-                    <a href="#">Learn more</a>
-                </div>
-                <div>
-                    <i class="fa-brands fa-app-store"></i>
-                    <h2>E-commerce Solutions</h2>
-                    <p>Developing and managing e-commerce platforms, including shopping cart integration, payment processing, and inventory management.</p>
                     <a href="#">Learn more</a>
                 </div>
                 
@@ -190,11 +178,11 @@
                     <div class="layer">
                         <h3>Online Shopping App</h3>
                         <p>The app connects you go the talented people around the world. Download it from play store.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/shreyay4060/amazon"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>  
-            </div>
-            <a href="#" class="btn">See more</a>
+            </div><br><br>
+            <a href="#" class="btn4">See more</a>
         </div>
     </div>
 
@@ -253,19 +241,19 @@ if (isset($_POST['name'])) {
                 <div class="contact-left">
                     <h3 class="sub-title">Get in Touch</h3>
                     <p><i class="fa-solid fa-paper-plane-top"></i> 
-                    Contact@ex.com
+                    shreya@dev.com
                 </p>
                 <p><i class="fa-solid fa-square-phone"></i> 
                 8421915279
                     </p>
                     <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-twitter-square"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://x.com/?lang=en-in"><i class="fa-brands fa-twitter-square"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://in.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/shreyay4060"><i class="fa-brands fa-github"></i></a>
                     </div>
-                    <a href="images/resume.pdf"class="btn btn2" download>Download CV</a>
+                    <a href="images/resume.pdf"class="btn btn3" download>Download CV</a>
                 </div>
                 <div class="contact-right">
                     <form action="index.php" method="post">
@@ -285,22 +273,120 @@ if (isset($_POST['name'])) {
                 </div>
             </div>
         </div>
+        
+
         <br>
         <div class="form">
 
             <button class="forms"><a href="eventRegistrationForm/index.php" class="btn1">Event Registration</a></button>
-            <button class="forms"><a href="feedbackForm/index.php" class="btn1">Feedback</button>
-            <button class="forms"><a href="surveyForm/index.php" class="btn1">Survey</button>
-            <button class="forms"><a href="resumeSubmissionForm/index.php" class="btn1">Submit Resume</button>
-            <button class="forms"><a href="projectInquiryForm/index.php" class="btn1">Project Inquiry</button>
+            <button class="forms"><a href="feedbackForm/index.php" class="btn1">Feedback</a></button>
+            <button class="forms"><a href="surveyForm/index.php" class="btn1">Survey</a></button>
+            <button class="forms"><a href="resumeSubmissionForm/index.php" class="btn1">Submit Resume</a></button>
+            <button class="forms"><a href="projectInquiryForm/index.php" class="btn1">Project Inquiry</a></button>
         </div>
-        <div class="copyright">
+        <div class="copyright" href="https://github.com/shreyay4060">
             <p>Copyright <i class="fa-regular fa-copyright"></i> Shreya <i class="fa-sharp fa-solid fa-heart"></i> </p>
         </div>
     </div>
 
     <div class="space"></div>
+
+    <!-- --------survey form-------- -->
+
+    <?php
+$submit2=false;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Capture the form data
+    $satisfaction = $_POST['satisfaction'];
+    $rating = $_POST['rating'];
+    $feedback = $_POST['feedback'];
+
+    // Validate the rating
+    if ($rating < 1 || $rating > 5) {
+        die("Rating must be between 1 and 5.");
+    }
+
+    // Database connection
+    $server = "localhost"; // Your server name
+    $username = "root"; // Your database username
+    $password = ""; // Your database password
+    $dbname = "portfolio"; // Your database name
+
+    // Create connection
+    $conn = new mysqli($server, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO `portfolio`.`survey` (satisfaction, rating, feedback) VALUES (?, ?, ?)");
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    // Use 's' for string and 'i' for integer
+    // Pass the variables directly without quotes
+    $stmt->bind_param("sis", $satisfaction, $rating, $feedback);
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        // Successfully inserted
+        $submit2 = true;
+    } else {
+        echo "Insertion failed. Error: " . $stmt->error;
+    }
+
+    // Close the statement and connection
+    $stmt->close();
+    $conn->close();
+}
+?>
+<div class="form-container">
+        <h1>Survey/Questionnaire Form</h1>
+        <p>We value your feedback! Please fill out this survey to help us improve.</p><br><br><hr><br>
+        <form id="surveyForm" action="index.php" method="post">
+            <!-- Multiple-Choice Question -->
+            <label for="satisfaction">How much you satisfied with my work?</label>
+            <div class="options">
+                <label><input type="radio" name="satisfaction" value="Very Satisfied" required> Very Satisfied</label>
+                <label><input type="radio" name="satisfaction" value="Satisfied"> Satisfied</label>
+                <label><input type="radio" name="satisfaction" value="Neutral"> Neutral</label>
+                <label><input type="radio" name="satisfaction" value="Dissatisfied"> Dissatisfied</label>
+                <label><input type="radio" name="satisfaction" value="Very Dissatisfied"> Very Dissatisfied</label>
+            </div>
+
+            <!-- Rating Scale -->
+             <br>
+            <label for="rating">Rate our services (1 = Poor, 5 = Excellent):</label>
+            <div class="rating-scale">
+                <input type="range" id="rating" name="rating" min="1" max="5" value="3" oninput="updateRatingValue(this.value)">
+                <span id="ratingValue">3</span>
+            </div>
+
+            <!-- Open-Ended Question -->
+            <label for="feedback">What improvements would you suggest?</label>
+            <textarea id="feedback" name="feedback" placeholder="Your suggestions..." rows="4" required></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submit2" class="button1">Submit</button>
+            <p id="form-status"><?php echo $submit2 ? "Submited successful!" : ""; ?></p>
+        </form>
+        
+    </div>
+    <!-- scripts for survey -->
+    <script>
+        function updateRatingValue(value) {
+            document.getElementById('ratingValue').innerText = value;
+        }
+    </script>
+    <script src="survey.js"></script>    
     
+    <!-- Scripts for website -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     
     <script src="script.js"></script>

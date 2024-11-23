@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>We value your feedback! Please fill out this survey to help us improve.</p>
         <form id="surveyForm" action="index.php" method="post">
             <!-- Multiple-Choice Question -->
-            <label for="satisfaction">How satisfied are you with our services?</label>
+            <label for="satisfaction">How satisfied are you with my service?</label>
             <div class="options">
                 <label><input type="radio" name="satisfaction" value="Very Satisfied" required> Very Satisfied</label>
                 <label><input type="radio" name="satisfaction" value="Satisfied"> Satisfied</label>
@@ -76,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <!-- Rating Scale -->
+             <br>
             <label for="rating">Rate our services (1 = Poor, 5 = Excellent):</label>
             <div class="rating-scale">
                 <input type="range" id="rating" name="rating" min="1" max="5" value="3" oninput="updateRatingValue(this.value)">
@@ -87,8 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <textarea id="feedback" name="feedback" placeholder="Your suggestions..." rows="4" required></textarea>
 
             <!-- Submit Button -->
-            <button type="submit" id="submit">Submit</button>
-            <p id="form-status"><?php echo $submit ? "Submited successful!" : ""; ?></p>
+            <button type="submit" id="submit" class="button1">Submit</button>
+            <p id="form-status"><?php echo $submit ? "Submited Successful!" : ""; ?></p>
         </form>
         
     </div>
@@ -97,5 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             document.getElementById('ratingValue').innerText = value;
         }
     </script>
+    <script src="survey.js"></script>
 </body>
 </html>

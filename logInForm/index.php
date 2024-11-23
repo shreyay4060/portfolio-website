@@ -1,5 +1,7 @@
 <?php
+session_start();
 $loggedin=false;
+
 
 if (isset($_POST['email'])) {
     $server = "localhost";
@@ -35,7 +37,22 @@ if (isset($_POST['email'])) {
     // Close connection
     $con->close();
 }
+
+// logout
+
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.html");
+    exit;
+}
+
+
+session_destroy(); // Destroy the session
+header("Location: login.html"); // Redirect to login page
+exit;
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,10 +84,14 @@ if (isset($_POST['email'])) {
                 <p>
                     <a id="forgot" href="#">Forgot password?</a><br><br>
                 </p>
-                <p id="or">Don't have an account? <a id="signup" href="#">Sign Up</a></p>
+                <p id="or">Don't have an account? <a id="signup" href="SignUpForm/index.php">Sign Up</a></p>
                 <br><br>
                 <button class="submit"><h4>Submit</h4></button>
             </form>
+            <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+    <form action="logout.php" method="POST">
+        <button type="submit">Logout</button>
+    </form>
         </div>
     </div>
 

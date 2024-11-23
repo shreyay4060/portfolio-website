@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Handle form submission
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit2', function (event) {
         event.preventDefault(); // Prevent actual submission
 
         // Gather form data

@@ -1,13 +1,13 @@
 <?php
-$submit = false; // Initialize the variable
+$submit = false; // Initialize the variable for submission
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     $server = "localhost";
     $username = "root";
     $password = "";
-    $database = "portfolio"; // Specify your database name
+    $database = "portfolio";
 
-    // Establishing a connection to the database
+    // connection to the database
     $con = new mysqli($server, $username, $password, $database);
 
     // Check connection
@@ -15,8 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         die("Connection failed: " . $con->connect_error);
     }
 
-    // Remove the echo statement for production use
-    // echo "Connection is successful"; // Uncomment for debugging
+    // echo "Connection is successful"; 
 
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -73,10 +72,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" required />
 
             <button type="submit" class="submit">Submit</button>
-            <p id="form-status"><?php echo $submit ? "Submission successful!" : ""; ?></p>
+            <!-- Vote of thanks -->
+            <?php
+                           if($submit==true){
+
+                               echo "<div class='thanks'>Thanks for submitting your response</div>";
+                            } 
+                     ?>
         </form>
     </div>
 
-    <script src="signup.js"></script>
+    <!-- <script src="signup.js"></script> -->
 </body>
 </html>
