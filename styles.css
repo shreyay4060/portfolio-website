@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Arial', serif;
     box-sizing: border-box;
+    outline: none;
     
 }
 body {
@@ -49,6 +50,7 @@ body {
     border: 1px solid #ff004f;
     transition: background 0.8s;
     background-color: transparent;
+    text-decoration: none;
 }
 .btn6:hover{
     color: whitesmoke;
@@ -448,7 +450,8 @@ nav ul#sidemenu i {
     overflow: hidden;
 }
 .work img{
-    width: 100%;
+    /* width: 80%; */
+    height: 100%;
     border-radius: 10px;
     display: block;
     transition : transform 0.5s;

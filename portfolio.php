@@ -73,7 +73,7 @@
                             $res_id = $result['Id'];
                         }
                         
-                        echo "<button class='btn6'><a href='edit.php?Id=$res_id'>Change Profile</a></button>";
+                        echo "<button class='btn6'><a class='btn6' href='edit.php?Id=$res_id'>Change Profile</a></button>";
                         ?>
 
                         <a href="php/logout.php"> <button class="btn5">Log Out</button> </a>
@@ -189,7 +189,7 @@
             <h3 class="sub-title">My Work</h3><br><br>
             <div class="work-list">
                 <div class="work">
-                    <img src="images/img2.jpg">
+                    <img src="images/onlineshopping.avif">
                     <div class="layer">
                         <h3>Social Media App</h3>
                         <p>The app connects you go the talented people around the world. Download it from play store.</p>
@@ -205,7 +205,7 @@
                     </div>
                 </div>
                 <div class="work">
-                    <img src="images/img2.jpg">
+                    <img src="images/onlineshopping.avif">
                     <div class="layer">
                         <h3>Online Shopping App</h3>
                         <p>The app connects you go the talented people around the world. Download it from play store.</p>
