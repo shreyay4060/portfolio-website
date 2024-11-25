@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="form-container">
         <h1>Resume Submission Form</h1>
-        <form action="index.php" method="post" enctype="multipart/form-data">
+        <form action="resumeSubmission.php" method="post" enctype="multipart/form-data">
             <!-- Name Field -->
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Full Name" required>

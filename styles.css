@@ -5,14 +5,115 @@
     box-sizing: border-box;
     
 }
-
 body {
     background-color: #080808;
     color: #fff;
     overflow-x: hidden;
     background:#080808;
-    /* background: color #080808; */
+    background-color :#262626;
 }
+
+
+/* logout section */
+
+.nav .logo p a{
+    color: #ff004f;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+/* log out button */
+
+.btn5{ 
+    color: rgb(219, 214, 214);
+    font-weight: 600;
+    width: 8rem;
+    margin-right: -100px;
+    border: 1px solid #ff004f;
+    transition: background 0.8s;
+    background-color: transparent;
+}
+.btn5:hover{
+    color: whitesmoke;
+    background-color: #ff004f;
+    border: 1px solid #e12f68;
+}
+/* change profile  */
+.btn6{
+    color: rgb(219, 214, 214);
+    font-weight: 600;
+    width: 8rem;
+    margin-right: -100px;
+    border: 1px solid #ff004f;
+    transition: background 0.8s;
+    background-color: transparent;
+}
+.btn6:hover{
+    color: whitesmoke;
+    background-color: #ff004f;
+    border: 1px solid #e12f68;
+}
+.nav{
+    /* background: #fff; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 60px;
+    z-index: 100;
+}
+.logo{
+    font-size: 25px;
+    font-weight: 900;
+    
+}
+.logo a{
+    text-decoration: none;
+    color: #000;
+}
+.right-links a{
+    padding: 0 10px;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+.main-box{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.main-box .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bottom{
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+
+@media only screen and (max-width:840px){
+    .main-box .top{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .top .box{
+        margin: 10px 10px;
+    }
+    .bottom{
+        margin-top: 0;
+    }
+}
+
+/* portfolio section */
+
 
 /* Header Section */
 #header {
@@ -42,7 +143,11 @@ nav {
     flex-wrap: wrap;
 }
 
-nav .logo {
+nav .logo-shreya {
+    color: #ff004f;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 25px;
     width: 140px;
     /* background-image: url("/logo.png"); */
 }
@@ -62,7 +167,7 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
-    font-weight: 550;
+    font-weight: 450;
 }
 
 nav ul li a::after {
@@ -403,13 +508,13 @@ nav ul#sidemenu i {
 .contact-left p i {
     color: #870bcf;
     /* margin-right: 15px; */
-    margin-left: -370px;
+    /* margin-left: -370px; */
     font-size: 30px;
 
 }
 .contact-left p i:hover{
     color: #ff004f;
-   
+   margin-left: 60px;
     transform: translateY(-5px)
 }
 

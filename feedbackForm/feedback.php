@@ -55,7 +55,7 @@
                             } 
                      ?>
                      <br>
-        <form action="index.php" method="post" id="feedbackForm">
+        <form action="feedback.php" method="post" id="feedbackForm">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
