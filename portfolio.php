@@ -12,8 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shreya.dev</title>
-    <link rel="stylesheet" href="/style/styles.css">
-    <link rel="stylesheet" href="/style/survey.css">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/survey.css">
     <!-- <link rel="stylesheet" href="style/style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/3047116925.js" crossorigin="anonymous"></script>
@@ -65,7 +65,7 @@
                     <h3 class="sub-title">About Me</h3><br>
                     <p class="about">Hello, my name is <b class="shreya">Shreya</b>. I recently completed my Bachelor of Computer Science (BCS) degree in 2025 from SGM College in Karad, affiliated with Shivaji University. With a strong passion for computers and technology, I am excited to embark on my career as a Software Developer. I am eager to apply my knowledge and skills in programming and software development to create innovative solutions and contribute to impactful projects in the tech industry.
                     </p>
-                    <br><br><hr>
+                    <br><br><hr><br>
 
                    <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -286,58 +286,58 @@
 
     <!-- --------survey form-------- -->
 
-    <?php
-$submit2=false;
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+<?php
+    $submit2=false;
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Capture the form data
-    $satisfaction = $_POST['satisfaction'];
-    $rating = $_POST['rating'];
-    $feedback = $_POST['feedback'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Capture the form data
+        $satisfaction = $_POST['satisfaction'];
+        $rating = $_POST['rating'];
+        $feedback = $_POST['feedback'];
 
-    // Validate the rating
-    if ($rating < 1 || $rating > 5) {
-        die("Rating must be between 1 and 5.");
+        // Validate the rating
+        if ($rating < 1 || $rating > 5) {
+            die("Rating must be between 1 and 5.");
+        }
+
+        // Database connection
+        $server = "localhost"; // Your server name
+        $username = "root"; // Your database username
+        $password = ""; // Your database password
+        $dbname = "portfolio"; // Your database name
+
+        // Create connection
+        $conn = new mysqli($server, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Prepare and bind
+        $stmt = $conn->prepare("INSERT INTO `portfolio`.`survey` (satisfaction, rating, feedback) VALUES (?, ?, ?)");
+        if ($stmt === false) {
+            die("Prepare failed: " . $conn->error);
+        }
+
+        // Use 's' for string and 'i' for integer
+        // Pass the variables directly without quotes
+        $stmt->bind_param("sis", $satisfaction, $rating, $feedback);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            // Successfully inserted
+            $submit2 = true;
+        } else {
+            echo "Insertion failed. Error: " . $stmt->error;
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
     }
-
-    // Database connection
-    $server = "localhost"; // Your server name
-    $username = "root"; // Your database username
-    $password = ""; // Your database password
-    $dbname = "portfolio"; // Your database name
-
-    // Create connection
-    $conn = new mysqli($server, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO `portfolio`.`survey` (satisfaction, rating, feedback) VALUES (?, ?, ?)");
-    if ($stmt === false) {
-        die("Prepare failed: " . $conn->error);
-    }
-
-    // Use 's' for string and 'i' for integer
-    // Pass the variables directly without quotes
-    $stmt->bind_param("sis", $satisfaction, $rating, $feedback);
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        // Successfully inserted
-        $submit2 = true;
-    } else {
-        echo "Insertion failed. Error: " . $stmt->error;
-    }
-
-    // Close the statement and connection
-    $stmt->close();
-    $conn->close();
-}
 ?>
 <div class="form-container">
         <h1>Survey/Questionnaire Form</h1>

@@ -13,15 +13,18 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 90vh;
+    background:#000;
+    color: white;
 }
 .box{
-    background: #fdfdfd;
+    background:transparent;
     display: flex;
     flex-direction: column;
     padding: 25px 25px;
+    border: 1px solid #ff004f;
     border-radius: 20px;
-    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
-                0 32px 64px -48px rgba(0,0,0,0.5);
+    box-shadow: 0 0 128px 0 rgba(193, 186, 186, 0.1),
+                0 32px 64px -48px rgba(166, 154, 154, 0.5);
 }
 .form-box{
     width: 450px;

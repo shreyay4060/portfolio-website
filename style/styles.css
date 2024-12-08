@@ -429,9 +429,17 @@ nav ul#sidemenu i {
 #portfolio {
     padding: 50px 0;
 }
+.sub-title{
+    margin-top: 15px;
+    transition: all 0.4s ease-in-out;
+    margin-bottom: 20px;
+    /* padding: 10px; */
+}
 .sub-title:hover{
     color: #ff004f;
-    transition : transform 0.9s;
+    text-decoration: 2px solid underline ;
+    /* transition : transform 0.9s; */
+
 }
 .work-list {
     display: grid;
