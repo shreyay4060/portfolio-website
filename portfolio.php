@@ -12,35 +12,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shreya.dev</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="survey.css">
+    <link rel="stylesheet" href="/style/styles.css">
+    <link rel="stylesheet" href="/style/survey.css">
     <!-- <link rel="stylesheet" href="style/style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/3047116925.js" crossorigin="anonymous"></script>
 </head>
 <body>
   
-
-    <!-- <main>
-
-       <div class="main-box top">
-          <div class="top">
-            <div class="box">
-                <p>Hello <b><?php echo $res_Uname ?></b>, Welcome</p>
-            </div>
-            <div class="box">
-                <p>Your email is <b><?php echo $res_Email ?></b>.</p>
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="box">
-                <p>And you are <b><?php echo $res_Age ?> years old</b>.</p> 
-            </div>
-          </div>
-       </div>
-
-    </main> -->
-
 
     <!-- portfolio section -->
     
@@ -58,26 +37,8 @@
                    <!-- logout section -->
 
                 <div class="nav">
-        
                     <div class="right-links">
-
-                        <?php 
-                        
-                        $id = $_SESSION['id'];
-                        $query = mysqli_query($con,"SELECT*FROM users WHERE Id=$id");
-
-                        while($result = mysqli_fetch_assoc($query)){
-                            $res_Uname = $result['Username'];
-                            $res_Email = $result['Email'];
-                            $res_Age = $result['Age'];
-                            $res_id = $result['Id'];
-                        }
-                        
-                        echo "<button class='btn6'><a class='btn6' href='edit.php?Id=$res_id'>Change Profile</a></button>";
-                        ?>
-
                         <a href="php/logout.php"> <button class="btn5">Log Out</button> </a>
-
                     </div>
                 </div>
 
@@ -102,8 +63,9 @@
                 </div>
                 <div class="about-col-2">
                     <h3 class="sub-title">About Me</h3><br>
-                    <p>Hello, my name is <b class="shreya">Shreya</b>. I recently completed my Bachelor of Computer Science (BCS) degree in 2025 from SGM College in Karad, affiliated with Shivaji University. With a strong passion for computers and technology, I am excited to embark on my career as a Software Developer. I am eager to apply my knowledge and skills in programming and software development to create innovative solutions and contribute to impactful projects in the tech industry.
+                    <p class="about">Hello, my name is <b class="shreya">Shreya</b>. I recently completed my Bachelor of Computer Science (BCS) degree in 2025 from SGM College in Karad, affiliated with Shivaji University. With a strong passion for computers and technology, I am excited to embark on my career as a Software Developer. I am eager to apply my knowledge and skills in programming and software development to create innovative solutions and contribute to impactful projects in the tech industry.
                     </p>
+                    <br><br><hr>
 
                    <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -182,22 +144,22 @@
         </div>
     </div>
 
-    <!-- --------Portfolio--------------- -->
+    <!-- --------work--------------- -->
 
     <div id="portfolio">
         <div class="container">
             <h3 class="sub-title">My Work</h3><br><br>
             <div class="work-list">
                 <div class="work">
-                    <img src="images/onlineshopping.avif">
+                    <img src="images/blog.jpeg">
                     <div class="layer">
-                        <h3>Social Media App</h3>
-                        <p>The app connects you go the talented people around the world. Download it from play store.</p>
+                        <h3>Blog Post App</h3>
+                        <p>a platform or application designed to create, manage, and display blog posts.</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="work">
-                    <img src="images/img2.jpg">
+                    <img src="images/music.jpeg">
                     <div class="layer">
                         <h3>Music App</h3>
                         <p>The app connects you go the talented people around the world. Download it from play store.</p>
@@ -221,49 +183,49 @@
     <!-- --------Contact--------- -->
 
      <!-- php code for contact form -->
-     <?php
+ <?php
 
-// variable for submit contact form
-$submit = false;
-if (isset($_POST['name'])) {
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "portfolio";
+    // variable for submit contact form
+    $submit = false;
+    if (isset($_POST['name'])) {
+        $server = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "portfolio";
 
-    // Create a connection
-    $con = mysqli_connect($server, $username, $password, $database);
+        // Create a connection
+        $con = mysqli_connect($server, $username, $password, $database);
 
-    // Check connection
-    if (!$con) {
-        die("Connection failed: " . mysqli_connect_error());
+        // Check connection
+        if (!$con) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        // Prepare the SQL statement
+        $stmt = $con->prepare("INSERT INTO contact (name, email, msg, date) VALUES (?, ?, ?, current_timestamp())");
+        
+        // Bind parameters
+        $stmt->bind_param("sss", $name, $email, $msg);
+
+        // Get values from POST request
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $msg = $_POST['msg'];
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            // Successfully inserted
+            $submit = true;
+        } else {
+            // Log the error instead of displaying it
+            error_log("Insertion failed: " . $stmt->error);
+            echo "There was an error submitting your message. Please try again later.";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $con->close();
     }
-
-    // Prepare the SQL statement
-    $stmt = $con->prepare("INSERT INTO contact (name, email, msg, date) VALUES (?, ?, ?, current_timestamp())");
-    
-    // Bind parameters
-    $stmt->bind_param("sss", $name, $email, $msg);
-
-    // Get values from POST request
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $msg = $_POST['msg'];
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        // Successfully inserted
-        $submit = true;
-    } else {
-        // Log the error instead of displaying it
-        error_log("Insertion failed: " . $stmt->error);
-        echo "There was an error submitting your message. Please try again later.";
-    }
-
-    // Close the statement and connection
-    $stmt->close();
-    $con->close();
-}
 ?>
     
     <div id="contact">
@@ -408,7 +370,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p id="form-status"><?php echo $submit2 ? "Submited successful!" : ""; ?></p>
         </form>
         
-    </div>
+    </div><br><br>
+    <?php 
+                        
+        $id = $_SESSION['id'];
+        $query = mysqli_query($con,"SELECT*FROM users WHERE Id=$id");
+
+        while($result = mysqli_fetch_assoc($query)){
+            $res_Uname = $result['Username'];
+            $res_Email = $result['Email'];
+            $res_Age = $result['Age'];
+            $res_id = $result['Id'];
+        }
+        
+        echo "<div><a class='btn6' href='edit.php?Id=$res_id'>Change Profile</a></div>";
+    ?>
     <!-- scripts for survey -->
     <script>
         function updateRatingValue(value) {
